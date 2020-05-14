@@ -1,0 +1,98 @@
+@import "_variables";
+@import "_mixins";
+
+
+.dashboard {
+    &__header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: @dashboard-header-height;
+        background-color: #fff;
+        box-shadow: 0 2px 5px 2px rgba(60, 64, 67, 0.15);
+        z-index: 1000;
+    }
+
+    &__new {
+        margin-top: @dashboard-header-height;
+        padding: 1.5rem;
+        background: #F1F3F4;
+    }
+
+    &__center {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    &__create {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+        height: 160px;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid #dadce0;
+        text-decoration: none;
+        cursor: pointer;
+
+        span {
+            font-weight: 500;
+            font-size: 70px;
+            color: @text-color;
+        }
+
+        &:hover {
+            box-shadow: 0 0 0 1px #a4a4c8;
+
+            span {
+                color: darken(@text-color, 10%);
+            }
+        }
+    }
+
+    &__table {
+        padding: 10px;
+    }
+
+    &__list-header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 20px;
+        padding: 0 12px;
+        color: #202124;
+    }
+
+    &__list {}
+
+    &__record {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 12px 10px;
+        border-bottom: 1px solid @border-color;
+        a {
+            font-size: 16px;
+            font-weight: 500;
+            color: #202124;
+            text-decoration: none;
+            &:hover {
+                color: #000;
+            }
+        }
+        span {
+            font-size: 14px;
+        }
+
+        &:hover {
+            border-radius: 4px;
+            background-color: lighten(@border-color, 8%);
+            border-color: lighten(@border-color, 8%);
+        }
+    }
+}

@@ -1,0 +1,24 @@
+._button(@color: #2A8946) {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 24px;
+    height: 24px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    span {
+        font-size: 25px;
+        cursor: pointer;
+        color: @color;
+        border-radius: 2px;
+    }
+    &:hover span {
+        color: #fff;
+        background-color: @color;
+    }
+    &:active span,
+    &.active span {
+        background-color: #ccc;
+    }
+}
+
