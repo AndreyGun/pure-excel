@@ -1,0 +1,29 @@
+@import "_variables";
+@import "_mixins";
+
+
+.excel__header {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    justify-content: space-between;
+    grid-gap: 10px;
+    padding: @block-common-padding;
+    height: 40px;
+    border-bottom: 1px solid @border-color;
+    .title-input {
+        font-size: 18px;
+        padding: 0 10px;
+        color: @text-color;
+        border: 1px solid #dfdede;
+        border-radius: 2px;
+        &:hover {
+            border-color: darken(@border-color, 10%);
+        }
+        &:focus {
+            border: 2px solid #1a73e8;
+        }
+    }
+    button {
+        ._button();
+    }
+}

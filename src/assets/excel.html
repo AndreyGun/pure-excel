@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel - Pure JS</title>
+    <link rel="shortcut" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- START EXCEL LAYOUT BLOCK-->
+    <div class="excel">
+        <!-- start header -->
+        <div class="excel__header">
+            <input type="text" class="title-input" value="New table">
+            <div class="container">
+                <button>
+                    <span class="material-icons">exit_to_app</span>
+                </button>
+                <button>
+                    <span class="material-icons">delete_outline</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- start formula -->
+        <div class="excel__toolbar">
+            <button>
+                <span class="material-icons">format_bold</span>
+            </button>
+            <button>
+                <span class="material-icons">format_italic</span>
+            </button>
+            <button>
+                <span class="material-icons">format_underline</span>
+            </button>
+            <button>
+                <span class="material-icons">format_align_left</span>
+            </button>
+            <button>
+                <span class="material-icons">format_align_center</span>
+            </button>
+            <button>
+                <span class="material-icons">format_align_right</span>
+            </button>
+        </div>
+
+        <!-- start toolbar -->
+        <div class="excel__formula">
+            <div class="info">fx</div>
+            <div class="input" contenteditable="true" spellcheck="false"></div>
+        </div>
+
+        <!-- start table -->
+        <div class="excel__table">
+            <!-- start row  -->
+            <div class="row">
+                <div class="row-info"></div>
+
+                <div class="row-data">
+                    <div class="column">A</div>
+                    <div class="column">B</div>
+                    <div class="column">C</div>
+                </div>
+            </div>
+            <!-- end row  -->
+            <!-- start row  -->
+            <div class="row">
+                <div class="row-info">1</div>
+                <div class="row-data">
+                    <div class="cell selected" contenteditable>A1</div>
+                    <div class="cell" contenteditable>B1</div>
+                    <div class="cell" contenteditable>C1</div>
+                </div>
+            </div>
+            <!-- end row  -->
+        </div>
+    </div>
+    <!-- END EXCEL LAYOUT BLOCK-->
+</body>
+
+</html>
