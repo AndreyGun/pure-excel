@@ -25,7 +25,7 @@ function toChar(_el, index) {
   return String.fromCharCode(CODES.A + index);
 }
 export function createTable(rowsCount = 15) {
-  const colsCount = CODES.Z - CODES.A + 1;
+  const colsCount = CODES.Z - CODES.A + 1; // computed count
   const rows = [];
 
   // const cols = Array.from(Array(colsCount).keys());
