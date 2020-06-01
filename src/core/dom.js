@@ -1,53 +1,79 @@
 class Dom {
-    constructor(selector) {
-        // #app
-        this.$el = typeof selector === 'string'
-            ? document.querySelector(selector)
-            : selector;
-    }
-    html(html = '') {
-        if (typeof html === 'string') {
-            this.$el.innerHTML = html;
-            return this;
-        }
-
-        return this.$el.innerHTML.trim();
-    }
-    clear() {
-        this.html('');
-        return this;
+  constructor(selector) {
+    // #app
+    this.$el =
+      typeof selector === 'string'
+        ? document.querySelector(selector)
+        : selector;
+  }
+  html(html = '') {
+    if (typeof html === 'string') {
+      this.$el.innerHTML = html;
+      return this;
     }
 
-    on(eventType, callback) {
-        this.$el.addEventListener(eventType, callback);
+    return this.$el.innerHTML.trim();
+  }
+  clear() {
+    this.html('');
+    return this;
+  }
+
+  on(eventType, callback) {
+    this.$el.addEventListener(eventType, callback);
+  }
+
+  off(eventType, callback) {
+    this.$el.removeEventListener(eventType, callback);
+  }
+
+  // Node - element
+  append(node) {
+    if (node instanceof Dom) {
+      node = node.$el;
     }
 
-    off(eventType, callback) {
-        this.$el.removeEventListener(eventType, callback);
+    if (Element.prototype.append) {
+      this.$el.append(node);
+    } else {
+      this.$el.appendChild(node);
     }
+    return this;
+  }
+  get data() {
+    return this.$el.dataset;
+  }
+  closest(selector) {
+    return $(this.$el.closest(selector));
+  }
 
-    // Node - element
-    append(node) {
-        if (node instanceof Dom) {
-            node = node.$el;
-        }
+  getCoords(selector) {
+    return this.$el.getBoundingClientRect();
+  }
+  findAll(selector) {
+    return this.$el.querySelectorAll(selector);
+  }
 
-        if (Element.prototype.append) {
-            this.$el.append(node);
-        } else {
-            this.$el.appendChild(node);
-        }
-        return this;
+  /*
+    {
+      height: '30px',
+      width: '42px;',
+      backgroundColor: red
     }
+    el
+  */
+  css(styles = {}) {
+    Object.assign(this.$el.style, styles);
+  }
 }
 export function $(selector) {
-    return new Dom(selector);
+  return new Dom(selector);
 }
 
 $.create = (tagName, classes = '') => {
-    const el = document.createElement(tagName);
-    if (classes) {
-        el.classList.add(classes);
-    }
-    return $(el);
+  const el = document.createElement(tagName);
+  if (classes) {
+    el.classList.add(classes);
+  }
+  return $(el);
 };

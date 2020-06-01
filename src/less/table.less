@@ -13,6 +13,7 @@
         height: @row-height;
     }
     .row-info {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -32,6 +33,7 @@
         min-width: 40px;
         padding: 5px;
         width: @column-width;
+        min-width: calc(@column-width - 40px);
         border: 1px solid @cell-border;
         border-top: none;
         border-left: none;
@@ -44,13 +46,39 @@
         }
     }
     .column {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         width: @column-width;
+        min-width: calc(@column-width - 40px);
         background: #f8f9fa;
         border: 1px solid @border-color;
         border-top: none;
         border-left: none;
+    }
+    .col-resize,
+    .row-resize {
+        opacity: 0;
+        position: absolute;
+        z-index: 100;
+        background: #3c4ff3;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .col-resize {
+        width: 2px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        cursor: col-resize;
+    }
+    .row-resize {
+        height: 2px;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        cursor: row-resize;
     }
 }
