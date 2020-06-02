@@ -54,14 +54,6 @@ class Dom {
     return this.$el.querySelectorAll(selector);
   }
 
-  /*
-    {
-      height: '30px',
-      width: '42px;',
-      backgroundColor: red
-    }
-    el
-  */
   css(styles = {}) {
     Object.assign(this.$el.style, styles);
   }
