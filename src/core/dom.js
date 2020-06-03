@@ -26,7 +26,9 @@ class Dom {
   off(eventType, callback) {
     this.$el.removeEventListener(eventType, callback);
   }
-
+  find(selector) {
+    return $(this.$el.querySelector(selector));
+  }
   // Node - element
   append(node) {
     if (node instanceof Dom) {
@@ -47,7 +49,7 @@ class Dom {
     return $(this.$el.closest(selector));
   }
 
-  getCoords(selector) {
+  getCoords() {
     return this.$el.getBoundingClientRect();
   }
   findAll(selector) {
@@ -55,6 +57,14 @@ class Dom {
   }
   css(styles = {}) {
     Object.assign(this.$el.style, styles);
+  }
+
+  addClass(classList) {
+    return this.$el.classList.add(classList);
+  }
+
+  removeClass(classList) {
+    return this.$el.classList.remove(classList);
   }
 }
 export function $(selector) {
