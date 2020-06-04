@@ -2,6 +2,7 @@ export class TableSelection {
   static className = 'selected';
   constructor() {
     this.group = [];
+    this.current = null;
   }
 
   clear() {
@@ -12,6 +13,7 @@ export class TableSelection {
     this.clear();
     // $el instanceof DOM === true
     this.group.push($el);
+    this.current = $el;
     $el.addClass(TableSelection.className);
   }
 

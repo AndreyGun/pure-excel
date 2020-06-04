@@ -62,7 +62,16 @@ class Dom {
   addClass(classList) {
     return this.$el.classList.add(classList);
   }
-
+  id(parse) {
+    if (parse) {
+      const parsed = this.id().split(':');
+      return {
+        row: +parsed[0], // + аналогично Number(parsed[0])
+        col: +parsed[1],
+      };
+    }
+    return this.data.id;
+  }
   removeClass(classList) {
     return this.$el.classList.remove(classList);
   }
