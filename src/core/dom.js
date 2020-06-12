@@ -12,7 +12,17 @@ class Dom {
       return this;
     }
 
-    return this.$el.innerHTML.trim();
+    return this.$el.outerHTML.trim();
+  }
+  text(text) {
+    if (typeof text === 'string') {
+      this.$el.innerText = text;
+      return this;
+    }
+    if (this.$el.tagName.toLowerCase() === 'input') {
+      return this.$el.value.trim();
+    }
+    return this.$el.textContent.trim();
   }
   clear() {
     this.html('');
@@ -60,7 +70,12 @@ class Dom {
   }
 
   addClass(classList) {
-    return this.$el.classList.add(classList);
+    this.$el.classList.add(classList);
+    return this;
+  }
+  removeClass(classList) {
+    this.$el.classList.remove(classList);
+    return this;
   }
   id(parse) {
     if (parse) {
@@ -72,8 +87,9 @@ class Dom {
     }
     return this.data.id;
   }
-  removeClass(classList) {
-    return this.$el.classList.remove(classList);
+  focus() {
+    this.$el.focus();
+    return this;
   }
 }
 export function $(selector) {

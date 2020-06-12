@@ -14,14 +14,12 @@ export class TableSelection {
     // $el instanceof DOM === true
     this.group.push($el);
     this.current = $el;
-    $el.addClass(TableSelection.className);
+    $el.focus().addClass(TableSelection.className);
   }
 
-  selectGroup($el) {
-    this.group.push($el);
-    $el.addClass(TableSelection.className);
-    this.group.forEach(element => {
-      console.log(element);
-    });
+  selectGroup($group = []) {
+    this.clear();
+    this.group = $group;
+    this.group.forEach($el => $el.addClass(TableSelection.className));
   }
 }
