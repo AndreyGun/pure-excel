@@ -9,11 +9,6 @@ import './less/index.less';
 console.log('...working, in index.js');
 
 const excel = new Excel('#app', {
-    components: [
-        Header,
-        Toolbar,
-        Formula,
-        Table
-    ]
+  components: [Header, Toolbar, Formula, Table],
 });
 excel.render();
