@@ -6,7 +6,7 @@ export class Excel {
     this.$el = $(selector);
     this.components = options.components || [];
     this.emitter = new Emitter();
-    console.log('options Excel');
+    console.log('options Excel.js');
     console.log(options);
   }
 

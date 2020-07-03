@@ -7,8 +7,8 @@ export class ExcelComponent extends DomListener {
     this.emitter = options.emitter;
     this.unsubscribers = [];
     this.prepare();
-    console.log('options ExcelComponent');
-    console.log(options.emitter);
+    console.log('options ExcelComponent.js');
+    console.log(options);
   }
   // Настраиваем наш компонент до init
   prepare() {}
